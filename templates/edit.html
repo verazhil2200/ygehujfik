@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Edit Product - {{ product.name }}
+{% endblock %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h4 class="mb-4">Редагування товару: {{ product.name.title() }}</h4>
+
+    <form method="POST" class="row">
+      <div class="col-md-3">
+        <label class="form-label">Ціна</label>
+        <input type="text" name="price" class="form-control" value="{{ product.price }}" required>
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Категорія</label>
+        <input type="text" name="category" class="form-control" value="{{ product.category }}" required>
+      </div>
+      
+      <div class="col-12 mt-3">
+        <button type="submit" class="btn btn-success">Зберегти</button>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">Скасувати</a>
+      </div>
+    </form>
+  </div>
+{% endblock %}
